@@ -18,7 +18,7 @@ body {
 }
 
 main {
-  flex: 1 0 auto; /* Fill the avialable space - was a flex item. */
+  flex: 1 0 auto; /* Fill the available space - was a flex item. */
   display: flex;  /* Now a flex container with flex items: sidebar & main content section*/
 }
 
