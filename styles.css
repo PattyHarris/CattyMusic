@@ -36,46 +36,20 @@ aside i.fa {
   font-size: 0.9em;
 }
 
-li {
-  display: flex;  /* Targets each list containing the paragraphs. */
-  padding: 0 20px;
-  min-height: 50px;
-}
-
-li p {
-  flex: 0 0 25%;  /* This is the sweet sauce. */
-}
-
-li span.catty-cloud {
-  border: 1px solid black;
-  font-size: 0.6em;
-  padding: 3px;
-}
-
-li:nth-child(2n) {
-  background-color: #f2f2f2;
-}
-
-.content {
+section.content {
     display: flex;
     flex: 1 0 auto; /* This makes sure the section grows o fill the entire available space. */
     flex-direction: column;
 }
 
-.music-head {
+section.content .music-head {
   flex: 0 0 280px;  /*Same memo, don't grow or shrink - stay at 280px */
   display: flex;
   padding: 40px;
   background-color: #4e4e4e;
 }
 
-.music-list {
-	flex: 1 0 auto;
-	list-style-type: none;
-	padding: 5px 10px 0px;
-}
-
-.catty-music{
+section.content .music-head  .catty-music {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
@@ -108,6 +82,34 @@ li:nth-child(2n) {
   margin: 2px 0;
 }
 
+section.content .music-list {
+	flex: 1 0 auto;
+	list-style-type: none;
+	padding: 5px 10px 0px;
+}
+
+li {
+  display: flex;  /* Targets each list containing the paragraphs. */
+  padding: 0 20px;
+  min-height: 50px;
+}
+
+li p {
+  flex: 0 0 25%;  /* This is the sweet sauce. */
+}
+
+li span.catty-cloud {
+  border: 1px solid black;
+  font-size: 0.6em;
+  padding: 3px;
+}
+
+li:nth-child(2n) {
+  background-color: #f2f2f2;
+}
+
+
+
 /*===== Footer =====*/
 
 footer {
@@ -123,7 +125,7 @@ footer {
 	margin-right: auto;
 }
 
-.catty-music-small img{
+.catty-music-small img {
 	padding-right: 10px;
     width: 100px;
 }
@@ -133,4 +135,57 @@ footer {
 	align-items: center;
 	justify-content: space-between;
 	width: 50%;
+}
+
+/*===== Mobile Responsiveness =====*/
+
+
+@media screen and (max-width: 64em) {
+
+  /* Allows hiding side controls for mobile */
+  .sm-hide {
+    display: none;
+  }
+  
+  .sm-text-center {
+    text-align: center;
+  }
+
+  .sm-text-right {
+    text-align: right;
+  }
+
+  section.content .music-head {
+    flex: 0 0 auto; /* Auto compute height. */
+    display: flex;
+    flex-direction: column; /* Stack image and music details vertically. */
+    align-items: center; /* Center items. left-to-right */
+    padding: 40px 0;
+    background-color: #4e4e4e;
+  }
+
+  section.content .music-head .catty-music {
+    padding: 0 /* Remove the spacing */
+  }
+
+  /* Album art */
+  .music-head img {
+    width: 150px;
+  }
+
+  /* Album details */
+  .catty-music div:nth-child1(1) p:first-child {
+    margin: 20px 0;
+    font-size: 1em;
+  }
+
+  /* Song lists */
+  li p {
+    flex: 0 0 50%;
+  }
+
+  /* Music controls */
+  .catty-music-controls {
+    justify-content: space-around;
+  }
 }
